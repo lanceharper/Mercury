@@ -1,0 +1,147 @@
+﻿@{
+    ViewBag.Title = "Mercury";
+}
+<div id="header">
+    <h3>
+        event ware</h3>
+</div>
+<div id="container">
+    <div id="navigation">
+        <ul id="navigation-list">
+            <li>Inbox</li>
+            <li class="active">Talent</li>
+            <li>Programs</li>
+            <li>Events</li>
+            <li>Recruiting</li>
+            <li>Map</li>
+            <li>Dashboard</li>
+            <li>Analysis</li>
+        </ul>
+    </div>
+    <div id="content">
+        <div id="contentbody">
+            <div class="commands">
+                <input id="search" type="text" />
+                <div id="searchButton">
+                    Search</div>
+                <div id="teamButton">
+                    Add to Team</div>
+                <input type="submit" id="broadcastButton" value="Broadcast" />
+            </div>
+            <table id="talent-list">
+            </table>
+            <div id="talent-pager">
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    <ul id="mainpanel">
+        <li><a href="#" class="home">EventWare <small></small></a></li>
+        <!--<li><a href="#" class="profile">View Profile <small>View Profile</small></a></li>
+            <li><a href="#" class="editprofile">Edit Profile <small>Edit Profile</small></a></li>
+            <li><a href="#" class="contacts">Contacts <small>Contacts</small></a></li>
+            <li><a href="#" class="messages">Messages (10) <small>Messages</small></a></li>
+            <li><a href="#" class="playlist">Play List <small>Play List</small></a></li>
+            <li><a href="#" class="videos">Videos <small>Videos</small></a></li>-->
+        <!-- <li id="alertpanel"><a href="#" class="alerts">Alerts</a></li>-->
+        <li id="chatpanel" style="display: none;"><a href="#" class="chat">Users Online (<strong>18</strong>)</a></li>
+    </ul>
+</div>
+<div id="dialog" title="Send SMS">
+    <div style="padding-bottom: 10px;">
+        <select id="role" name="role" class="chzn-select" multiple="multiple" style="width: 560px;">
+            <option value="distributor">Distributor</option>
+            <option value="fmm" selected="selected">FMM</option>
+            <option value="keyacct" selected="selected">Key Account</option>
+            <option value="winery">Winery</option>
+            <option value="wineryadmin">Winery Admin</option>
+        </select>
+    </div>
+    <textarea id="smsContent" style="height: 150px; width: 560px; padding-bottom: 10px;"></textarea>
+</div>
+@section Style {
+    <link href="@Url.Content("~/Content/aristo.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/jquery.jqGrid/ui.jqgrid.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/chosen.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Mercury.css")" rel="stylesheet" type="text/css" />
+}
+@section Script {
+    <script src="@Url.Content("~/Scripts/jquery.tmpl.js")" type="text/javascript"></script>
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.8.13/jquery-ui.min.js"></script>
+    <script src="@Url.Content("~/Scripts/i18n/grid.locale-en.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.jqGrid.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/chosen.jquery.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.signalR.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Mercury.js")" type="text/javascript"></script>
+    @*<script src="signalr/hubs" type="text/javascript" />*@
+     <script type="text/javascript">
+         $(function () {
+             $(".accordion").accordion({ header: "h3" });
+             $("#broadcastButton").button().click(function () { $('#dialog').dialog('open'); });
+             $("#searchButton").button();
+             $(".chzn-select").chosen();
+             $("#teamButton").button({
+                 icons: {
+                     secondary: 'ui-icon-triangle-1-s'
+                 }
+             });
+
+             $("#talent-list").jqGrid({
+                 url: '/SignalRChat/Home/GetData',
+                 datatype: 'json',
+                 mtype: 'POST',
+                 colNames: ['', 'First', 'Last', 'Phone', 'City', 'State', 'Zip'],
+                 colModel: [
+                    { name: 'Id', index: 'Id', align: 'center', formatter: formatIconLinks, width: '40px', sortable: false },
+                    { name: 'First', index: 'First', align: 'center' },
+                    { name: 'Last', index: 'Last', align: 'center' },
+                    { name: 'Phone', index: 'Phone', align: 'center' },
+                    { name: 'City', index: 'City', align: 'center', width: '400px' },
+                    { name: 'State', index: 'State', align: 'center' },
+                    { name: 'Zip', index: 'Zip', align: 'center', width: '600px' }
+                ],
+                 autowidth: true,
+                 pager: $("#talent-pager"),
+                 rowNum: '20',
+                 viewrecords: true,
+                 caption: '',
+                 height: '100%',
+                 shrinkToFit: false,
+                 sortname: 'Description',
+                 sortorder: "asc",
+                 postData: {
+
+                 }
+             });
+
+             function formatIconLinks(cellvalue, options, rowObject) {
+                 return "<input style='display:inline;' type='checkbox' name='selectedEvents' value='" + options.rowId + "' /> " + "<span onclick='sendText(" + options.rowId + ");'><img style='display:inline;' title='Send SMS'  src='Content/images/mobile-phone-cast.png' /></span>";
+             }
+
+
+             $(window).bind('resize', function () {
+                 $("#talent-list").setGridWidth($("#contentbody").width());
+                 $("#talent-list").setGridHeight($("#contentbody").height() - 190);
+             }).trigger('resize');
+         });
+    </script>
+    <script id="instantmessage-template" type="text/html">
+        <li class="instantmessage sender_{{= Number }}">
+            <a href="#" class="instantmessage">{{= Name }}</a>
+            <div class="subpanel">
+                <h3 class="">
+                    <span class="hide">&ndash; </span>{{= Name }} ({{= Number }})</h3>
+                <ul id="messagehistory">
+                    {{if Content}}
+                    <li>
+                        <p><strong>{{= Name }}: </strong>
+                            {{= Content }}</p>
+                    </li>
+                    {{/if}}
+                </ul>
+                <textarea></textarea>
+            </div>
+        </li>
+    </script>
+}

@@ -1,0 +1,15 @@
+c:\dev\sandbox\Mercury\Mercury.Web\bin\Mercury.Web.dll
+c:\dev\sandbox\Mercury\Mercury.Web\bin\Mercury.Web.pdb
+c:\dev\sandbox\Mercury\Mercury.Web\bin\EntityFramework.dll
+c:\dev\sandbox\Mercury\Mercury.Web\bin\Microsoft.Web.Infrastructure.dll
+c:\dev\sandbox\Mercury\Mercury.Web\bin\SignalR.dll
+c:\dev\sandbox\Mercury\Mercury.Web\bin\Twilio.Mvc.dll
+c:\dev\sandbox\Mercury\Mercury.Web\bin\Twilio.Twiml.dll
+c:\dev\sandbox\Mercury\Mercury.Web\bin\EntityFramework.xml
+c:\dev\sandbox\Mercury\Mercury.Web\bin\Twilio.Mvc.pdb
+c:\dev\sandbox\Mercury\Mercury.Web\bin\Twilio.Mvc.xml
+c:\dev\sandbox\Mercury\Mercury.Web\bin\Twilio.Twiml.pdb
+c:\dev\sandbox\Mercury\Mercury.Web\bin\Twilio.Twiml.xml
+c:\dev\sandbox\Mercury\Mercury.Web\obj\Debug\ResolveAssemblyReference.cache
+c:\dev\sandbox\Mercury\Mercury.Web\obj\Debug\Mercury.Web.dll
+c:\dev\sandbox\Mercury\Mercury.Web\obj\Debug\Mercury.Web.pdb

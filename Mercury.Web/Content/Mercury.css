@@ -1,0 +1,459 @@
+﻿body
+{
+    font: 0.6em normal Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+textarea
+{
+    font-family: arial;
+    width: 100%;
+    margin: 2px;
+}
+
+input, select
+{
+    padding: .4em;
+}
+
+#header
+{
+    padding: 10px;
+    position: fixed;
+    background-color: #2E5CAA;
+    color: #fff;
+    width: 100%;
+    font-weight: 100;
+}
+
+#footer
+{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 30px;
+    z-index: 9999;
+    background: #e3e2e2;
+    width: 100%;
+    margin: 0 0;
+}
+#container
+{
+    font-size: 1.2em;
+    margin: 10px 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 40px;
+    border-top: 1px solid #ddd;
+    background: #f0f0f0;
+    width: 100%;
+    margin: 0;
+    border-bottom: 1px solid #ddd;
+}
+#navigation
+{
+    font-weight: bold;
+    float: left;
+    width: 150px;
+    height: 100%;
+    padding: 10px;
+    text-align: center;
+    z-index: 100;
+}
+#navigation ul
+{
+    margin-bottom: 5px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    list-style-type: none;
+}
+
+#navigation ul li
+{
+    margin-bottom: 5px;
+    background-color: #fff;
+    color: #aaa;
+    padding: 10px;
+    font-size: 1.2em;
+}
+
+#navigation ul li.active
+{
+    margin-bottom: 5px;
+    background-color: #fff;
+    color: #000;
+    padding: 10px;
+    font-size: 1.2em;
+}
+
+
+#content
+{
+    padding-left: 180px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    z-index: 50;
+    height: 100%;
+}
+#contentbody
+{
+    height: 100%;
+    background-color: #fff;
+    padding: 15px 10px;
+    border: 1px solid #ddd;
+}
+#contentbody p
+{
+    margin: 5px 0;
+    padding: 5px 0;
+}
+#even
+{
+    background: #fff;
+}
+#specs li
+{
+    float: none;
+    margin: 0 5px 0 20px;
+    padding: 0;
+    list-style: disc;
+    border: 0;
+    background: none;
+    width: auto;
+}
+
+#footer ul
+{
+    padding: 0;
+    margin: 0;
+    float: left;
+    width: 100%;
+    list-style: none;
+    border-top: 1px solid #fff; /*--Gives the bevel feel on the panel--*/
+    font-size: 0.8em;
+}
+
+#footer ul li
+{
+    padding: 0;
+    margin: 0;
+    float: left;
+    position: relative;
+}
+
+#footer ul li a
+{
+    padding: 5px;
+    float: left;
+    text-indent: -9999px; /*--For text replacement - Shove text off of the page--*/
+    height: 16px;
+    width: 16px;
+    text-decoration: none;
+    color: #333;
+    position: relative;
+}
+
+#search
+{
+    width: 300px;
+    margin-right: 10px;
+}
+
+#searchButton
+{
+    background-color: green;
+}
+
+html #footer ul li a:hover
+{
+    background-color: #fff;
+}
+html #footer ul li a.active
+{
+    /*--Active state when sub-panel is open--*/
+    background-color: #fff;
+    height: 17px;
+    margin-top: -2px; /*--Push it up 2px to attach the active button to sub-panel--*/
+    border: 1px solid #555;
+    border-top: none;
+    z-index: 200; /*--Keeps the active link on top of the sub-panel--*/
+    position: relative;
+}
+
+#footer a.home
+{
+    background: url(content/images/home.png) no-repeat 15px center;
+    width: 84px;
+    padding-left: 40px;
+    border-right: 1px solid #bbb;
+    text-indent: 0; /*--Reset text indent since there will be a combination of both text and image--*/
+}
+
+a.profile
+{
+    background: url(content/images/user.png) no-repeat center center;
+}
+a.editprofile
+{
+    background: url(content/images/wrench_screwdriver.png) no-repeat center center;
+}
+a.contacts
+{
+    background: url(content/images/address_book.png) no-repeat center center;
+}
+a.messages
+{
+    background: url(content/images/mail.png) no-repeat center center;
+}
+a.playlist
+{
+    background: url(content/images/document_music_playlist.png) no-repeat center center;
+}
+a.videos
+{
+    background: url(content/images/film.png) no-repeat center center;
+}
+a.alerts
+{
+    background: url(content/images/newspaper.png) no-repeat center center;
+}
+#footer a.chat
+{
+    background: url(content/images/balloon.png) no-repeat 15px center;
+    width: 126px;
+    border-left: 1px solid #bbb;
+    border-right: 1px solid #bbb;
+    padding-left: 40px;
+    text-indent: 0; /*--Reset text indent since there will be a combination of both text and image--*/
+}
+#footer li#chatpanel, #footer li#alertpanel
+{
+    float: right;
+}
+
+#footer li.instantmessage
+{
+    float: right;
+}
+
+#footer a.instantmessage
+{
+    background: url(content/images/balloon.png) no-repeat 15px center;
+    width: 80px;
+    border-left: 1px solid #bbb;
+    border-right: 1px solid #bbb;
+    padding-left: 40px;
+    text-indent: 0;
+}
+/*--Right align the chat and alert panels--*/
+
+#footer a small
+{
+    text-align: center;
+    width: 70px;
+    background: url(content/images/pop_arrow.gif) no-repeat center bottom;
+    padding: 5px 5px 11px;
+    display: none; /*--Hide by default--*/
+    color: #000;
+    font-size: 0.6em;
+    text-indent: 0;
+}
+#footer a:hover small
+{
+    display: block; /*--Show on hover--*/
+    position: absolute;
+    top: -35px; /*--Position tooltip 35px above the list item--*/
+    left: 50%;
+    margin-left: -40px; /*--Center the tooltip--*/
+    z-index: 9999;
+}
+
+#footer ul li div a
+{
+    /*--Reset link style for sub-panel links--*/
+    text-indent: 0;
+    width: auto;
+    height: auto;
+    padding: 0;
+    float: none;
+    color: #00629a;
+    position: static;
+}
+#footer ul li div a:hover
+{
+    text-decoration: underline;
+}
+
+#footer .subpanel
+{
+    position: absolute;
+    left: -125px;
+    bottom: 27px;
+    display: none; /*--Hide by default--*/
+    width: 250px;
+    border: 1px solid #555;
+    background: #fff;
+    overflow: hidden;
+}
+
+#footer .subpanel ul
+{
+    padding: 0;
+    margin: 0;
+    background: #fff;
+    width: 100%;
+    overflow: auto;
+    padding-bottom: 2px;
+}
+#footer .subpanel li
+{
+    float: none; /*--Reset float--*/
+    display: block;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    clear: both;
+    background: #fff;
+    position: static; /*--Reset relative positioning--*/
+}
+
+#chatpanel .subpanel li
+{
+    background: url(dash.gif) repeat-x left center;
+}
+#chatpanel .subpanel li span
+{
+    padding: 5px;
+    background: #fff;
+    color: #777;
+    float: left;
+}
+#chatpanel .subpanel li a img
+{
+    float: left;
+    margin: 0 5px;
+}
+#chatpanel .subpanel li a
+{
+    padding: 3px 0;
+    margin: 0;
+    line-height: 22px;
+    height: 22px;
+    background: #fff;
+    display: block;
+}
+#chatpanel .subpanel li a:hover
+{
+    background: #3b5998;
+    color: #fff;
+    text-decoration: none;
+}
+
+#footer h3
+{
+    background: #2E5CAA;
+    padding: 5px 10px;
+    color: #fff;
+    font-size: 1.0em;
+    cursor: pointer;
+}
+#footer h3 span
+{
+    /*--Right aligned "-" icon--*/
+    font-size: 1.5em;
+    float: right;
+    line-height: 0.6em;
+    font-weight: normal;
+}
+
+.instantmessage .subpanel
+{
+    right: 0;
+    left: auto; /*--Reset left positioning and make it right positioned--*/
+}
+.instantmessage .subpanel li
+{
+    border-top: 1px solid #f0f0f0;
+    display: block;
+}
+.instantmessage .subpanel li p
+{
+    padding: 5px 10px;
+}
+.instantmessage .subpanel li a.delete
+{
+    background: url(delete_x.gif) no-repeat;
+    float: right;
+    width: 13px;
+    height: 14px;
+    margin: 5px;
+    text-indent: -9999px;
+    visibility: hidden; /*--Hides by default but still takes up space (not completely gone like display:none;)--*/
+}
+#instantmessage .subpanel li a.delete:hover
+{
+    background-position: left bottom;
+}
+#footer #instantmessage li.view
+{
+    text-align: right;
+    padding: 5px 10px 5px 0;
+}
+/*--Reset hover style for sub-panel links--*/
+
+
+/*** IE Fix ***/
+* html #left
+{
+    left: 150px; /* RC fullwidth */
+}
+
+/*** Footer Fix ***/
+
+#header, #footer
+{
+    font-size: large;
+}
+
+#container .column
+{
+    padding-top: 1em;
+    text-align: justify;
+}
+
+.commands
+{
+    padding-bottom: 10px;
+}
+
+.ui-jqgrid tr.ui-row-ltr td
+{
+    text-align: left;
+    border-right-width: 0px;
+    border-right-color: inherit;
+    border-right-style: solid;
+}
+
+.ui-th-column, .ui-jqgrid .ui-jqgrid-htable th.ui-th-column
+{
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
+    border-top: 0px none;
+    border-bottom: 0px none;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default
+{
+    border: 0px solid #B6B6B6;
+    font-weight: normal;
+    color: #4F4F4F;
+}
