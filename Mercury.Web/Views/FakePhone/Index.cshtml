@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Arbitrary";
+}
+<h2>
+    Arbitrary Sender</h2>
+<form action="@Url.Action("Index")" method="POST">
+<div style="width:200px;">
+    <div>
+        <label for="number">
+            Number</label>
+        <select name="number" style="width: 100%">
+            <option value="1">John Doe (1)</option>
+            <option value="2">Jane Doe (2)</option>
+            <option value="3">Jim Doe (3)</option>
+            <option value="4">Joe Doe (4)</option>
+        </select>
+    </div>
+    <div>
+        <label for="content">
+            Content</label>
+        <input name="content" type="text" value="stuff" style="width: 100%" />
+    </div>
+</div>
+<div>
+    <input type="submit" value="Post" />
+</div>
+</form>

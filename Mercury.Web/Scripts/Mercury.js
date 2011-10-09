@@ -65,13 +65,6 @@ $(function () {
         $("#footer li a").removeClass('active');
     });
 
-    //Click event outside of subpanel
-    //    $(document).click(function () { //Click anywhere and...
-
-    //        $(".subpanel").hide(); //hide subpanel
-    //        $("#footer li a").removeClass('active'); //remove active class on subpanel trigger
-    //    });
-
     $('.subpanel ul').click(function (e) {
 
         e.stopPropagation(); //Prevents the subpanel ul from closing on click
@@ -82,58 +75,29 @@ $(function () {
         e.stopPropagation(); //Prevents the subpanel ul from closing on click
     });
 
-//    var messagehub = $.connection.messagehub;
+    $('.messagetext').live("keypress", function (e) {
 
-//    function addMessage(content, type) {
-//        //alert('ok');
-//    }
+        if (e.which == '13') { //enter
+            $(this).prev("#messagehistory").append("<li><p><strong>" + "me" + ": </strong>" + $(this).val() + "</p></li>");
+            $(this).val("");
+            e.preventDefault();
+        }
 
-//    messagehub.displayMessage = function (message) {
-//        //alert(message);
-//    };
+    });
 
-//    messagehub.addChat = function (message) {
+    var messagehub = $.connection.messagehub;
 
-//        displayChatWindow(message);
-//    };
+    messagehub.addChat = function (message) {
+
+        displayChatWindow(message);
+    };
 
     // Start the connection
-//    $.connection.hub.start(function () {
-//        messagehub
-//                    .join()
-//                    .fail(function (e) {
-//                        addMessage(e, 'error');
-//                    })
-//                    .done(function (success) {
-//                        if (success === false) {
-//                            //$.cookie('userid', '');
+    $.connection.hub.start(function () {
 
-//                        }
-//                        console.log(success);
-//                        //addMessage('Yes!');
-//                    });
-//        //messagehub.groin();
-//        messagehub.clientsend('stuff');
-//    });
-
-    $("#send-button").click(function () {
-        //messagehub.clientsend('stuff');
     });
 
-    $('#dialog').dialog({
-        autoOpen: false,
-        width: 600,
-        height: 300,
-        buttons: {
-            "Send": function () {
-                $(this).dialog("close");
-            },
-            "Cancel": function () {
-                $(this).dialog("close");
-            }
-        },
-        modal: true
-    });
+
 });
 
 function displayChatWindow(message) {
