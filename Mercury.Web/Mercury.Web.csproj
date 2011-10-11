@@ -94,12 +94,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-=======
     <Content Include="Content\aristo.css" />
     <Content Include="Content\chosen-sprite.png" />
     <Content Include="Content\chosen.css" />
->>>>>>> 8d88a1abe9f6736c210000a2542482af5bce6015
     <Content Include="Content\images\address_book.png" />
     <Content Include="Content\images\balloon.png" />
     <Content Include="Content\images\bg_fallback.png" />
@@ -261,12 +258,9 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-=======
     <Folder Include="Hubs\" />
   </ItemGroup>
   <ItemGroup>
->>>>>>> 8d88a1abe9f6736c210000a2542482af5bce6015
     <None Include="Content\images\icons.psd" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

@@ -104,13 +104,12 @@
                  modal: true
              });
 
-<<<<<<< HEAD
              $("#talent-list").jqGrid({
-                 url: '@Url.Action("GetData")',
-                 datatype: 'json',
-                 mtype: 'POST',
-                 colNames: ['', 'First', 'Last', 'Phone', 'City', 'State', 'Zip'],
-                 colModel: [
+                url: '@Url.Action("GetData")',
+                datatype: 'json',
+                mtype: 'POST',
+                colNames: ['', 'First', 'Last', 'Phone', 'City', 'State', 'Zip'],
+                colModel: [
                     { name: 'Id', index: 'Id', align: 'center', formatter: formatIconLinks, width: '40px', sortable: false },
                     { name: 'First', index: 'First', align: 'center' },
                     { name: 'Last', index: 'Last', align: 'center' },
@@ -119,45 +118,19 @@
                     { name: 'State', index: 'State', align: 'center' },
                     { name: 'Zip', index: 'Zip', align: 'center', width: '600px' }
                 ],
-                 autowidth: true,
-                 pager: $("#talent-pager"),
-                 rowNum: '20',
-                 viewrecords: true,
-                 caption: '',
-                 height: '100%',
-                 shrinkToFit: false,
-                 sortname: 'Description',
-                 sortorder: "asc",
-                 postData: {
-=======
-             //             $("#talent-list").jqGrid({
-             //                 url: '/SignalRChat/Home/GetData',
-             //                 datatype: 'json',
-             //                 mtype: 'POST',
-             //                 colNames: ['', 'First', 'Last', 'Phone', 'City', 'State', 'Zip'],
-             //                 colModel: [
-             //                    { name: 'Id', index: 'Id', align: 'center', formatter: formatIconLinks, width: '40px', sortable: false },
-             //                    { name: 'First', index: 'First', align: 'center' },
-             //                    { name: 'Last', index: 'Last', align: 'center' },
-             //                    { name: 'Phone', index: 'Phone', align: 'center' },
-             //                    { name: 'City', index: 'City', align: 'center', width: '400px' },
-             //                    { name: 'State', index: 'State', align: 'center' },
-             //                    { name: 'Zip', index: 'Zip', align: 'center', width: '600px' }
-             //                ],
-             //                 autowidth: true,
-             //                 pager: $("#talent-pager"),
-             //                 rowNum: '20',
-             //                 viewrecords: true,
-             //                 caption: '',
-             //                 height: '100%',
-             //                 shrinkToFit: false,
-             //                 sortname: 'Description',
-             //                 sortorder: "asc",
-             //                 postData: {
->>>>>>> 8d88a1abe9f6736c210000a2542482af5bce6015
+                autowidth: true,
+                pager: $("#talent-pager"),
+                rowNum: '20',
+                viewrecords: true,
+                caption: '',
+                height: '100%',
+                shrinkToFit: false,
+                sortname: 'Description',
+                sortorder: "asc",
+                postData: {
 
-             //                 }
-             //             });
+                }
+            });
 
              function formatIconLinks(cellvalue, options, rowObject) {
                  return "<input style='display:inline;' type='checkbox' name='selectedEvents' value='" + options.rowId + "' /> " + "<span onclick='sendText(" + options.rowId + ");'><img style='display:inline;' title='Send SMS'  src='@Url.Content("~/Content/images/mobile-phone-cast.png")'/></span>";

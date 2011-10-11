@@ -34,3 +34,9 @@ C:\Dev\Mercury\Mercury.Web\bin\NHibernate.dll
 C:\Dev\Mercury\Mercury.Web\bin\FluentNHibernate.pdb
 C:\Dev\Mercury\Mercury.Web\bin\Iesi.Collections.xml
 C:\Dev\Mercury\Mercury.Web\bin\NHibernate.xml
+C:\Dev\Sandbox\Mercury\Mercury.Web\bin\FluentNHibernate.dll
+C:\Dev\Sandbox\Mercury\Mercury.Web\bin\Iesi.Collections.dll
+C:\Dev\Sandbox\Mercury\Mercury.Web\bin\NHibernate.dll
+C:\Dev\Sandbox\Mercury\Mercury.Web\bin\FluentNHibernate.pdb
+C:\Dev\Sandbox\Mercury\Mercury.Web\bin\Iesi.Collections.xml
+C:\Dev\Sandbox\Mercury\Mercury.Web\bin\NHibernate.xml
