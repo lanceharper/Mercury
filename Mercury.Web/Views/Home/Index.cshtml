@@ -27,6 +27,7 @@
                 <div id="teamButton">
                     Add to Team</div>
                 <input type="submit" id="broadcastButton" value="Broadcast" />
+                <a href="#">Show search options</a>
             </div>
             <table id="talent-list">
             </table>
@@ -88,7 +89,7 @@
              });
 
              $("#talent-list").jqGrid({
-                 url: '/SignalRChat/Home/GetData',
+                 url: '@Url.Action("GetData")',
                  datatype: 'json',
                  mtype: 'POST',
                  colNames: ['', 'First', 'Last', 'Phone', 'City', 'State', 'Zip'],
@@ -116,7 +117,7 @@
              });
 
              function formatIconLinks(cellvalue, options, rowObject) {
-                 return "<input style='display:inline;' type='checkbox' name='selectedEvents' value='" + options.rowId + "' /> " + "<span onclick='sendText(" + options.rowId + ");'><img style='display:inline;' title='Send SMS'  src='Content/images/mobile-phone-cast.png' /></span>";
+                 return "<input style='display:inline;' type='checkbox' name='selectedEvents' value='" + options.rowId + "' /> " + "<span onclick='sendText(" + options.rowId + ");'><img style='display:inline;' title='Send SMS'  src='@Url.Content("~/Content/images/mobile-phone-cast.png")'/></span>";
              }
 
 
